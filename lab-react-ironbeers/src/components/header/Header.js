@@ -1,17 +1,13 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import Navbar from 'react-bootstrap/Navbar'
+import { Link } from 'react-router-dom'
 
-function Header(props) {
+const Header = () => {
     return (
-        <div>
-            <div>
-                <Link to="/" >
-                    <img src={props.image} alt="image of the header" />
-                </Link>
-            </div>
+        <Navbar bg="light">
+            <Navbar.Brand><Link to={'/'}>IronBeers</Link></Navbar.Brand>
+        </Navbar>
 
-        </div>
     )
 }
 
-export default Header 
+export default Header

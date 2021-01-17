@@ -1,19 +1,23 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
+import BeersList from './beers-list/BeersList'
+import BeerDetail from './beer-detail/Beer-detail'
+import RandomBeer from './random-beer/RandomBeer'
+import Homepage from './homepage/homepage'
+import Header from './header/header'
 import './App.css';
-import Home from './../pages/home/Home'
-import Header from './header/Header'
-import BeerList from './../pages/beers/BeerList'
-import { Switch, Route } from "react-router-dom"
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Route, Link, Switch } from 'react-router-dom'
 
 function App() {
   return (
-  <> 
+    <>
       <Header />
-      <Switch>
-        <Route path="/" exact render={() => <Home />} /> 
-        <Route path='/BeerList' render={() => <BeerList />} /> 
-      </Switch>
+      <Homepage />
+      <Route path='/beers' exact render={() => <BeersList />} />
+      <Route path='/beers/:id' render={props => <BeerDetail {...props} />} />
+      <Route path='/random' render={() => <RandomBeer />} />
+
     </>
+
   );
 }
 
